@@ -19,11 +19,14 @@ jobs:
       - name: Build
         run: npm run build -- --prod
         working-directory: ${{env.working-dir}}
+      - name: Test
+        run: ls
+        working-directory: ${{env.working-dir}}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: dist
+          path: ${{env.working-dir}}/dist
   deploy:
     name: Deploy
     needs: build
