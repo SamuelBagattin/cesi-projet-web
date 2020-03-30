@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: npm install
-        working-directory: ${{env.working-directory}}
+        working-directory: ${{env.working-dir}}
       - name: Build
         run: npm run build -- --prod
-        working-directory: ${{env.working-directory}}
+        working-directory: ${{env.working-dir}}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
