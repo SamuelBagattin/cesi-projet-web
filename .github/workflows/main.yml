@@ -19,8 +19,8 @@ jobs:
       - name: Build
         run: npm run build -- --prod --outputPath=dist/dist
         working-directory: ${{env.working-dir}}
-      - name: Copy firebase.json
-        run: cp firebase.json dist
+      - name: Copy firebase files
+        run: cp {firebase.json,.firebaserc,firestore.indexes.json,firestore.rules} dist
         working-directory: ${{env.working-dir}}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
