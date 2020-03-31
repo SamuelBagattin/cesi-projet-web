@@ -38,8 +38,8 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: dist
-      - name: Set project dir environment var
-        run: echo ::set-env name=PROJECT_DIR::"$GITHUB_WORKSPACE/dist"
+      - name: cd
+        run: cd ./dist
       - name: ls
         run: ls
       - name: Deploy to Firebase
