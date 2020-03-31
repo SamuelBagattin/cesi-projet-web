@@ -38,8 +38,10 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: dist
+      - name: testett
+        run: ls
       - name: Deploy to Firebase
-        uses: lowply/deploy-firebase@v0.0.2
+        uses: w9jds/firebase-action@v1.3.0
         with:
           args: deploy
         env:
