@@ -40,10 +40,11 @@ jobs:
           name: dist
       - name: Set project dir environment var
         run: echo ::set-env name=PROJECT_DIR::"$GITHUB_WORKSPACE/dist"
+      - name: ls
+        run: ls
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v1.3.0
         with:
           args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          FIREBASE_PROJECT: cesi-projet-web
