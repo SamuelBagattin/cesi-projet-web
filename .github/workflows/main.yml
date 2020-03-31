@@ -38,13 +38,10 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: dist
-      - name: cd
-        run: cd ./dist
-      - name: ls
-        run: ls
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v1.3.0
         with:
           args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_PATH: ./dist
