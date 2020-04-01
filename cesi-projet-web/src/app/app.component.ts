@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.sass'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public title: string = 'cesi-projet-web';
+  title = 'cesi-projet-web';
 }
