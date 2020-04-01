@@ -123,6 +123,10 @@
               "devServerTarget": "cesi-projet-web:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

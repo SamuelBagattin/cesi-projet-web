@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "cesi-projet-web"
+  },
+  "targets": {
+    "cesi-projet-web": {
+      "hosting": {
+        "cesi-projet-web": [
+          "cesi-projet-web"
+        ]
+      }
+    }
   }
 }
