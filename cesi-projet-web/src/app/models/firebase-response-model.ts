@@ -1,7 +1,7 @@
 import { firestore } from 'firebase/app';
 import Timestamp = firestore.Timestamp;
 
-export interface FirebaseRequestModel {
+export interface FirebaseResponseModel {
   description: string;
   dueDate: Timestamp;
   requestDate: Timestamp;

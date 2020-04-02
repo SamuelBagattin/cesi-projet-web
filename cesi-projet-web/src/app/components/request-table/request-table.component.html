@@ -1,38 +1,47 @@
-<mat-table id="mat-table" [dataSource]="data" class="mat-elevation-z8">
-  <!-- Position Column -->
-  <ng-container matColumnDef="title">
-    <mat-header-cell class="header" *matHeaderCellDef> Titre</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
-  </ng-container>
+<div id="container">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+  </mat-form-field>
+  <mat-table id="mat-table" [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell class="header" *matHeaderCellDef> Titre</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="status">
-    <mat-header-cell class="header" *matHeaderCellDef> Status</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell class="header" *matHeaderCellDef> Status</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+    </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="dueDate">
-    <mat-header-cell class="header" *matHeaderCellDef> Deadline</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.dueDate.toDate().toLocaleDateString("fr-FR")}} </mat-cell>
-  </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="dueDate">
+      <mat-header-cell class="header" *matHeaderCellDef> Deadline</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dueDate}} </mat-cell>
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="requestDate">
-    <mat-header-cell class="header" *matHeaderCellDef> Date de création</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.requestDate.toDate().toLocaleDateString("fr-FR")}} </mat-cell>
-  </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="requestDate">
+      <mat-header-cell class="header" *matHeaderCellDef> Date de création</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.requestDate}} </mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="priority">
-    <mat-header-cell class="header" *matHeaderCellDef>Priorité</mat-header-cell>
-    <mat-cell *matCellDef="let element" [style.color]="element.priority | toColor"><i id="priorityIcon" class="fas fa-exclamation-circle"></i></mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="priority">
+      <mat-header-cell class="header" *matHeaderCellDef>Priorité</mat-header-cell>
+      <mat-cell *matCellDef="let element" [style.color]="element.priority | toColor"><i id="priorityIcon"
+                                                                                        class="fas fa-exclamation-circle"></i>
+      </mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="requester" class="shouldBeWideWhenMobile">
-    <mat-header-cell class="header" *matHeaderCellDef> Rapporteur</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.requester}} </mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="requester" class="shouldBeWideWhenMobile">
+      <mat-header-cell class="header" *matHeaderCellDef> Rapporteur</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.requester}} </mat-cell>
+    </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

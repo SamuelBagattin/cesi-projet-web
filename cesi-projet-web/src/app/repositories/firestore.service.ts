@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection, DocumentData, QuerySnapshot} from '@angular/fire/firestore';
-import {FirebaseRequestModel} from '../models/firebase-request-model';
+import {FirebaseResponseModel} from '../models/firebase-response-model';
 import {Observable} from 'rxjs';
 import {FirebaseApp} from '@angular/fire';
 import {HttpClient} from '@angular/common/http';
@@ -14,8 +14,8 @@ export class FirestoreService {
   constructor(private readonly firestore: AngularFirestore) {
   }
 
-  public getRequests(): Observable<FirebaseRequestModel[]> {
-    return this.firestore.collection<FirebaseRequestModel>('requests').valueChanges();
+  public getRequests(): Observable<FirebaseResponseModel[]> {
+    return this.firestore.collection<FirebaseResponseModel>('requests').valueChanges();
   }
 
   public async addRequest(result: DialogData) {
