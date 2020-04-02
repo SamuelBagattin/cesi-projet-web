@@ -1,9 +1,30 @@
-#priorityIcon{
+#priorityIcon {
   font-size: 2rem;
 }
-#mat-table{
+
+#mat-table {
   width: 75%;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 4rem;
+}
+
+.header{
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 900px) {
+  #mat-table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+  }
+
+  .header{
+    font-weight: bold;
+    font-size: 0.85rem;
+  }
+
 }

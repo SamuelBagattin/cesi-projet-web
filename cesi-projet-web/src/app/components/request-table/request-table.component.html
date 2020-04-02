@@ -1,35 +1,35 @@
 <mat-table id="mat-table" [dataSource]="data" class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="title">
-    <mat-header-cell *matHeaderCellDef> Titre</mat-header-cell>
+    <mat-header-cell class="header" *matHeaderCellDef> Titre</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="status">
-    <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+    <mat-header-cell class="header" *matHeaderCellDef> Status</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="dueDate">
-    <mat-header-cell *matHeaderCellDef> Deadline</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.dueDate * 1000 | date:'dd/MM hh:mm a'}} </mat-cell>
+    <mat-header-cell class="header" *matHeaderCellDef> Deadline</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.dueDate.toDate().toLocaleDateString("fr-FR")}} </mat-cell>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="requestDate">
-    <mat-header-cell *matHeaderCellDef> Date de création</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.requestDate * 1000 | date:'dd/MM hh:mm a'}} </mat-cell>
+    <mat-header-cell class="header" *matHeaderCellDef> Date de création</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.requestDate.toDate().toLocaleDateString("fr-FR")}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="priority">
-    <mat-header-cell *matHeaderCellDef> priority</mat-header-cell>
+    <mat-header-cell class="header" *matHeaderCellDef>Priorité</mat-header-cell>
     <mat-cell *matCellDef="let element" [style.color]="element.priority | toColor"><i id="priorityIcon" class="fas fa-exclamation-circle"></i></mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="requester">
-    <mat-header-cell *matHeaderCellDef> Rapporteur</mat-header-cell>
+  <ng-container matColumnDef="requester" class="shouldBeWideWhenMobile">
+    <mat-header-cell class="header" *matHeaderCellDef> Rapporteur</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.requester}} </mat-cell>
   </ng-container>
 

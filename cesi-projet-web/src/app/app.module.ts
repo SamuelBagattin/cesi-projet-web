@@ -12,13 +12,25 @@ import {environment} from '../environments/environment';
 import { RequestTableComponent } from './components/request-table/request-table.component';
 import {MatTableModule} from '@angular/material/table';
 import {ToColorPipe} from './pipes/to-color.pipe';
+import {MatButtonModule} from '@angular/material/button';
+import { RequestFormComponent } from './components/request-form/request-form.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import { SnackbarActionsComponent } from './components/snackbar-actions/snackbar-actions.component';
+import {FormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     RequestTableComponent,
     ToColorPipe,
-    ToColorPipe
+    ToColorPipe,
+    RequestFormComponent,
+    SnackbarActionsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +41,14 @@ import {ToColorPipe} from './pipes/to-color.pipe';
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     MatTableModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

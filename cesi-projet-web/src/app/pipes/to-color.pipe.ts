@@ -7,13 +7,13 @@ export class ToColorPipe implements PipeTransform {
 
   transform(value: string): string {
     switch (value) {
-      case 'haute': {
+      case 'hight': {
         return 'red';
       }
-      case 'basse': {
+      case 'low': {
         return 'blue';
       }
-      case 'moyenne': {
+      case 'mid': {
         return 'green';
       }
       default: {

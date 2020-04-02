@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>Ajout d'une requête</h1>
+<div mat-dialog-content>
+  <ul>
+
+    <li>
+      <mat-form-field>
+        <mat-label>Titre de la requête</mat-label>
+        <input matInput [(ngModel)]="data.title">
+      </mat-form-field>
+    </li>
+
+    <li>
+      <mat-form-field>
+        <mat-label>Rapporteur</mat-label>
+        <input matInput [(ngModel)]="data.requester">
+      </mat-form-field>
+    </li>
+
+    <li>
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select [(value)]="data.status">
+          <mat-option value="Opened">Opened</mat-option>
+          <mat-option value="In Progress">In Progress</mat-option>
+          <mat-option value="Closed">Closed</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </li>
+
+    <li>
+      <mat-form-field>
+        <mat-label>Deadline</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="data.dueDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </li>
+
+    <li>
+      <mat-form-field>
+        <mat-label>Priorité</mat-label>
+        <mat-select [(value)]="data.priority">
+          <mat-option value="hight">Haute</mat-option>
+          <mat-option value="mid">Moyenne</mat-option>
+          <mat-option value="low">Basse</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </li>
+
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="data.description"></textarea>
+      </mat-form-field>
+    </li>
+
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
