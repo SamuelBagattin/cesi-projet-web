@@ -3,7 +3,7 @@
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Your filter">
   </mat-form-field>
-
+  <app-priority-filter></app-priority-filter>
   <mat-table id="mat-table" matSort [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Position Column -->
     <ng-container matColumnDef="title">
@@ -31,8 +31,8 @@
 
     <ng-container matColumnDef="priority">
       <mat-header-cell class="header" *matHeaderCellDef>Priorité</mat-header-cell>
-      <mat-cell *matCellDef="let element" [style.color]="element.priority | toColor"><i id="priorityIcon"
-                                                                                        class="fas fa-exclamation-circle"></i>
+      <mat-cell *matCellDef="let element" [className]="element.priority | toPriorityClassColor"><i id="priorityIcon"
+                                                                                                   class="fas fa-exclamation-circle"></i>
       </mat-cell>
     </ng-container>
 

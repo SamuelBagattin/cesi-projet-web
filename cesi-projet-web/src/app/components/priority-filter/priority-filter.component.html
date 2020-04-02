@@ -1,0 +1,12 @@
+<label id="example-radio-group-label">Priority : </label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [ngModel]="filter" (ngModelChange)="setFilter($event)">
+  <mat-radio-button checked class="example-radio-button" [value]="defaultValue">
+    {{defaultValue}}
+  </mat-radio-button>
+  <mat-radio-button class="example-radio-button" *ngFor="let filterValue of filterValues" [value]="filterValue">
+    {{filterValue}}
+  </mat-radio-button>
+</mat-radio-group>

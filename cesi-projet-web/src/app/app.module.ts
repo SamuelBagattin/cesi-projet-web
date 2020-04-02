@@ -11,7 +11,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import { RequestTableComponent } from './components/request-table/request-table.component';
 import {MatTableModule} from '@angular/material/table';
-import {ToColorPipe} from './pipes/to-color.pipe';
+import {ToPriorityClassColorPipe} from './pipes/to-color.pipe';
 import {MatButtonModule} from '@angular/material/button';
 import { RequestFormComponent } from './components/request-form/request-form.component';
 import {MatCardModule} from '@angular/material/card';
@@ -24,15 +24,19 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import { PriorityFilterComponent } from './components/priority-filter/priority-filter.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     RequestTableComponent,
-    ToColorPipe,
-    ToColorPipe,
+    ToPriorityClassColorPipe,
+    ToPriorityClassColorPipe,
     RequestFormComponent,
-    SnackbarActionsComponent
+    SnackbarActionsComponent,
+    PriorityFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import {MatSortModule} from '@angular/material/sort';
     MatDatepickerModule,
     MatNativeDateModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatRadioModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

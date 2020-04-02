@@ -1,0 +1,15 @@
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+#example-radio-group-label{
+  margin-left: 4rem;
+}
+
+@media only screen and (max-width: 900px) {
+  #example-radio-group-label{
+    margin-left: 1rem;
+  }
+
+}
+

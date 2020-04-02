@@ -1,20 +1,20 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'toColor'
+  name: 'toPriorityClassColor'
 })
-export class ToColorPipe implements PipeTransform {
+export class ToPriorityClassColorPipe implements PipeTransform {
 
   transform(value: string): string {
     switch (value) {
-      case 'hight': {
-        return 'red';
+      case 'high': {
+        return 'highPriority';
       }
       case 'low': {
-        return 'blue';
+        return 'lowPriority';
       }
       case 'mid': {
-        return 'green';
+        return 'midPriority';
       }
       default: {
         return 'grey';
