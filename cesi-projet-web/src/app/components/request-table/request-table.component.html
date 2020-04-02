@@ -1,30 +1,31 @@
 <div id="container">
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Your filter">
   </mat-form-field>
-  <mat-table id="mat-table" [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <mat-table id="mat-table" matSort [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Position Column -->
     <ng-container matColumnDef="title">
-      <mat-header-cell class="header" *matHeaderCellDef> Titre</mat-header-cell>
+      <mat-header-cell class="header" *matHeaderCellDef mat-sort-header> Titre</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="status">
-      <mat-header-cell class="header" *matHeaderCellDef> Status</mat-header-cell>
+      <mat-header-cell class="header" *matHeaderCellDef mat-sort-header> Status</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="dueDate">
-      <mat-header-cell class="header" *matHeaderCellDef> Deadline</mat-header-cell>
+      <mat-header-cell class="header" *matHeaderCellDef mat-sort-header> Deadline</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.dueDate}} </mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="requestDate">
-      <mat-header-cell class="header" *matHeaderCellDef> Date de création</mat-header-cell>
+      <mat-header-cell class="header" *matHeaderCellDef mat-sort-header> Date de création</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.requestDate}} </mat-cell>
     </ng-container>
 

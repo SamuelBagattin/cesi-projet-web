@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {RequestFormComponent} from '../request-form/request-form.component';
 import {FirestoreService} from '../../repositories/firestore.service';
-import {DialogData} from '../../models/dialog-data';
+import {RequestDialogModel} from '../../models/request-dialog-model';
 
 @Component({
   selector: 'app-snackbar-actions',
@@ -25,7 +25,7 @@ export class SnackbarActionsComponent {
       }
     });
 
-    dialogRef.afterClosed().subscribe((result: DialogData) => {
+    dialogRef.afterClosed().subscribe((result: RequestDialogModel) => {
       this.firestoreService.addRequest(result).then();
     });
   }

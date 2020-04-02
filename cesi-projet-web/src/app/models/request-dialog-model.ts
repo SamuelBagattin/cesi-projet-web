@@ -1,4 +1,4 @@
-export interface DialogData {
+export interface RequestDialogModel {
   description: string;
   dueDate: Date;
   requestDate: string;

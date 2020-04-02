@@ -4,7 +4,7 @@ import {FirebaseResponseModel} from '../models/firebase-response-model';
 import {Observable} from 'rxjs';
 import {FirebaseApp} from '@angular/fire';
 import {HttpClient} from '@angular/common/http';
-import {DialogData} from '../models/dialog-data';
+import {RequestDialogModel} from '../models/request-dialog-model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class FirestoreService {
     return this.firestore.collection<FirebaseResponseModel>('requests').valueChanges();
   }
 
-  public async addRequest(result: DialogData) {
+  public async addRequest(result: RequestDialogModel) {
     await this.firestore.collection('requests').add({
       description: result.description,
       dueDate: result.dueDate,

@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {DialogData} from '../../models/dialog-data';
+import {RequestDialogModel} from '../../models/request-dialog-model';
 
 @Component({
   selector: 'app-request-form',
@@ -10,7 +10,7 @@ import {DialogData} from '../../models/dialog-data';
 export class RequestFormComponent  {
   constructor(
     public dialogRef: MatDialogRef<RequestFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: RequestDialogModel) {}
 
   onNoClick(): void {
     this.dialogRef.close();
