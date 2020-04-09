@@ -14,10 +14,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run: npm install
+        run: yarn install
         working-directory: ${{env.working-dir}}
       - name: Build
-        run: npm run build -- --prod --outputPath=dist/dist
+        run: yarn run build -- --prod --outputPath=dist/dist
         working-directory: ${{env.working-dir}}
       - name: Copy firebase files
         run: cp {firebase.json,.firebaserc,firestore.indexes.json,firestore.rules} dist

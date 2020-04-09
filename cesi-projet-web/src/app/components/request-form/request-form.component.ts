@@ -1,21 +1,20 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {RequestDialogModel} from '../../models/request-dialog-model';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { RequestDialogModel } from '../../models/request-dialog-model';
 
 @Component({
-  selector: 'app-request-form',
-  templateUrl: './request-form.component.html',
-  styleUrls: ['./request-form.component.scss']
+    selector: 'app-request-form',
+    templateUrl: './request-form.component.html',
+    styleUrls: ['./request-form.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RequestFormComponent {
-  constructor(
-    public dialogRef: MatDialogRef<RequestFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: RequestDialogModel) {
-  }
+    constructor(
+        public dialogRef: MatDialogRef<RequestFormComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: RequestDialogModel,
+    ) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
+    public onNoClick(): void {
+        this.dialogRef.close();
+    }
 }

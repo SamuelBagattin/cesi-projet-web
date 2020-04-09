@@ -1,32 +1,28 @@
-import {Injectable} from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection, DocumentData, QuerySnapshot} from '@angular/fire/firestore';
-import {FirebaseResponseModel} from '../models/firebase-response-model';
-import {Observable} from 'rxjs';
-import {FirebaseApp} from '@angular/fire';
-import {HttpClient} from '@angular/common/http';
-import {RequestDialogModel} from '../models/request-dialog-model';
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { FirebaseResponseModel } from '../models/firebase-response-model';
+import { RequestDialogModel } from '../models/request-dialog-model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class FirestoreService {
+    constructor(private readonly firestore: AngularFirestore) {}
 
-  constructor(private readonly firestore: AngularFirestore) {
-  }
+    public getRequests(): Observable<FirebaseResponseModel[]> {
+        return this.firestore.collection<FirebaseResponseModel>('requests').valueChanges();
+    }
 
-  public getRequests(): Observable<FirebaseResponseModel[]> {
-    return this.firestore.collection<FirebaseResponseModel>('requests').valueChanges();
-  }
-
-  public async addRequest(result: RequestDialogModel) {
-    await this.firestore.collection('requests').add({
-      description: result.description,
-      dueDate: result.dueDate,
-      requestDate: new Date(result.requestDate),
-      requester: result.requester,
-      status: result.status,
-      title: result.title,
-      priority: result.priority,
-    });
-  }
+    public async addRequest(result: RequestDialogModel): Promise<void> {
+        await this.firestore.collection('requests').add({
+            description: result.description,
+            dueDate: result.dueDate,
+            requestDate: new Date(result.requestDate),
+            requester: result.requester,
+            status: result.status,
+            title: result.title,
+            priority: result.priority,
+        });
+    }
 }
