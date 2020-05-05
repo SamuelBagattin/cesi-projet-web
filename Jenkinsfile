@@ -4,6 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Coucou'
+        sh 'ls -l'
       }
     }
 
